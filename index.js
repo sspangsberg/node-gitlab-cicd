@@ -11,6 +11,17 @@ const addNumbers = (firstNumber, secondNumber) => {
   return Number(firstNumber) + Number(secondNumber);
 }
 
+// Our function which adds two numbers and returns the result
+const subtractNumbers = (firstNumber, secondNumber) => {
+  //   check that input is a number
+    if (typeof(Number(firstNumber)) !== 'number' || typeof(Number(secondNumber)) !== 'number') {
+      return 'Values should be integer or numbers'
+    }
+    return Number(firstNumber) - Number(secondNumber);
+  }
+  
+
+
 // Destructure our bodyParser methods
 const { urlencoded, json } = bodyParser;
 const port = process.env.PORT || 8080;
@@ -29,6 +40,17 @@ app.post('/api/add', (req, res) => {
     result
   });
 });
+
+// end point to add numbers
+app.post('/api/subtract', (req, res) => {
+  const { firstNumber, secondNumber } = req.body;
+  const result =  subtractNumbers(firstNumber, secondNumber);
+  return res.status(200).send({
+    result
+  });
+});
+
+
 // app entry point
 app.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to our glorious app',
