@@ -81,6 +81,17 @@ app.post('/api/multiply', (req, res) => {
 });
 
 
+// end point to add numbers
+app.post('/api/divide', (req, res) => {
+  const { firstNumber, secondNumber } = req.body;
+  const result =  divideNumbers(firstNumber, secondNumber);
+  return res.status(200).send({
+    result
+  });
+});
+
+
+
 // app entry point
 app.get('/', (req, res) => res.status(200).send({
   message: 'Welcome to our glorious app',
