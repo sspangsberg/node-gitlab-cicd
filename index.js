@@ -20,6 +20,17 @@ const subtractNumbers = (firstNumber, secondNumber) => {
     return Number(firstNumber) - Number(secondNumber);
   }
   
+// Our function which adds two numbers and returns the result
+const multiplyNumbers = (firstNumber, secondNumber) => {
+  //   check that input is a number
+    if (typeof(Number(firstNumber)) !== 'number' || typeof(Number(secondNumber)) !== 'number') {
+      return 'Values should be integer or numbers'
+    }
+    return Number(firstNumber) * Number(secondNumber);
+  }
+
+
+
 
 
 // Destructure our bodyParser methods
@@ -45,6 +56,15 @@ app.post('/api/add', (req, res) => {
 app.post('/api/subtract', (req, res) => {
   const { firstNumber, secondNumber } = req.body;
   const result =  subtractNumbers(firstNumber, secondNumber);
+  return res.status(200).send({
+    result
+  });
+});
+
+// end point to add numbers
+app.post('/api/multiply', (req, res) => {
+  const { firstNumber, secondNumber } = req.body;
+  const result =  multiplyNumbers(firstNumber, secondNumber);
   return res.status(200).send({
     result
   });

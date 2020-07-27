@@ -44,4 +44,22 @@ describe('Subtract method', () => {
 })
 
 
+describe('Multiply method', () => {
+    it('should connect to the Server', (done) => {
+        api.post('/api/multiply')
+        .set('Connection', 'keep alive')
+        .set('Content-Type', 'application/json')
+        .type('form')
+        .send({
+            firstNumber: 10,
+            secondNumber: 4
+        })
+        .end((err, res) => {
+            res.status.should.equal(200);
+            res.body.result.should.equal(6);
+            done();
+        });
+    });
+})
+
 
