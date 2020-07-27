@@ -63,3 +63,26 @@ describe('Multiply method', () => {
 })
 
 
+
+
+describe('Divide method', () => {
+    it('should connect to the Server', (done) => {
+        api.post('/api/divide')
+        .set('Connection', 'keep alive')
+        .set('Content-Type', 'application/json')
+        .type('form')
+        .send({
+            firstNumber: 8,
+            secondNumber: 4
+        })
+        .end((err, res) => {
+            res.status.should.equal(200);
+            res.body.result.should.equal(2);
+            done();
+        });
+    });
+})
+
+
+
+

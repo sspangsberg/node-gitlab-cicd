@@ -30,6 +30,16 @@ const multiplyNumbers = (firstNumber, secondNumber) => {
   }
 
 
+// Our function which adds two numbers and returns the result
+const divideNumbers = (firstNumber, secondNumber) => {
+  //   check that input is a number
+    if (typeof(Number(firstNumber)) !== 'number' || typeof(Number(secondNumber)) !== 'number') {
+      return 'Values should be integer or numbers'
+    }
+    return Number(firstNumber) / Number(secondNumber);
+  }
+
+
 
 
 
