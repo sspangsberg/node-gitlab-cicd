@@ -56,7 +56,7 @@ describe('Multiply method', () => {
         })
         .end((err, res) => {
             res.status.should.equal(200);
-            res.body.result.should.equal(6);
+            res.body.result.should.equal(40);
             done();
         });
     });
