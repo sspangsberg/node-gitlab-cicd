@@ -94,11 +94,11 @@ app.post('/api/divide', (req, res) => {
 
 // app entry point
 app.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to our glorious app',
+  message: 'Welcome to the Calculator',
 }));
 // Setup a default catch-all route that sends back a welcome message in JSON format.
 app.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to the beginning of nothingness.',
+  message: 'Welcome to the Calculator',
 }));
 
 app.listen(port, (err) => {
